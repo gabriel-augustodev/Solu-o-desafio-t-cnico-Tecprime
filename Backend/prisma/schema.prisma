@@ -1,0 +1,34 @@
+// Configuração do banco PostgreSQL (Neon)
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Cliente Prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  customerName  String
+  email         String
+  address       String
+  paymentMethod String
+  totalAmount   Decimal
+  createdAt     DateTime    @default(now())
+
+  // Relação 1:N com order_items
+  items         OrderItem[]
+}
+
+model OrderItem {
+  id          String  @id @default(uuid())
+  orderId     String
+  productId   Int
+  productName String
+  price       Decimal
+  quantity    Int
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}

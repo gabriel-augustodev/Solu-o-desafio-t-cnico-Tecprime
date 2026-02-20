@@ -224,15 +224,6 @@ Aplicação disponível em:
 
 ---
 
-# ⭐ Diferenciais Aplicados (se implementados)
-
-- Organização em camadas
-- Estrutura escalável
-- Tipagem forte com TypeScript
-- Código limpo e legível
-
----
-
 # 🚀 Melhorias Futuras
 
 Se houvesse mais tempo, seriam implementados:
